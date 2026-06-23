@@ -1,10 +1,10 @@
-# SHELL PROGRESSIVE EXERCISES
+# Shell Progressive Exercises
 
-**This is a natural, graduate series of exercises generated with an AI .**
+This is a series of progressive exercises generated with an AI .
 
-## Exercises Completed :
+## Exercises Completed
 
-* **Exercise 1 :** Control age with a question and the `read` function.
-* **Exercise 2 :** Password to authorize access.
+* **Exercise 1 :** Age verification using a prompt and the `read` function.
+* **Exercise 2 :** Password authentication for access control.
 
 
