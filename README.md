@@ -4,10 +4,12 @@
 
 ## SCRIPTS
 
-**I: check age** 
+**I: check age**
+ 
 Uses a `while` loop and checks user input to verify age. 
 
 **II: check password**
+
 A secure script to check password usig silent input with `read -sp`.
 
 
