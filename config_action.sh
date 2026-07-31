@@ -1,13 +1,23 @@
 #!/bin/bash
+set -euo pipefail
 
-REPONSE=""
+while true; do
+	if ! read -r -p "Installation de la mise à jour ? (o/n) : " REPONSE; then
+	echo -e "\n Saisie annulée" >&2
+	exit 1
+	fi
 
-while [[ "$REPONSE" != "o" && "$REPONSE" != "n" ]]; do
-	read -p "voulez vous installer la mise à jour ? o/n" REPONSE
+	REPONSE="${REPONSE,,}"
+
+	if [[ "$REPONSE" =~ ^(o|oui|n|non)$ ]]; then
+	break
+	fi
+
+	echo "Repondre par 'o' ou 'n'" >&2
 done
 
-if [[ "$REPONSE" == o ]]; then
-	echo "installation de la mise à jour"
+if [[ "$REPONSE" =~ ^(o|oui)$ ]]; then
+	echo "Installation de la mise à jour"
 else
-	echo "installation refusé"
+	echo "Installation refusée"
 fi
