@@ -1,18 +1,21 @@
 #!/bin/bash
 
-MAJORITE=18
+readonly MAJORITE=18
 
 while true; do
-	read -p "Quel âge avez vous ? " AGE
+	if ! read -r -p "Quel âge avez vous ? " AGE; then
+		echo -e "\n Saisie annulée " >&2
+		exit 1
+	fi
 
 	if [[ "$AGE" =~ ^[0-9]+$ ]]; then
 		break;
-	else
-		echo "Veuillez saisir un âge correct";
 	fi
+	echo "Veuillez saisir un âge correct" >&2
 done
-	if [ "$AGE" -ge "$MAJORITE" ]; then
-		echo "Vous êtes majeur"
-	else
-		echo "Vous êtes mineur"
-	fi
+	
+if (( AGE >= MAJORITE )); then
+	echo "Vous êtes majeur"
+else
+	echo "Vous êtes mineur"
+fi
