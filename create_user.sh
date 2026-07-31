@@ -1,15 +1,16 @@
 #!/bin/bash
+#set -euo pipefail
 
-if [ $# -ne 2 ]; then
-	echo "usage $0 <nom_utilisateur> <age>"
+if (( $# != 2 )); then
+	echo "Usage $0 <nom_utilisateur> <age>" >&2
 	exit 1
 fi
 
-USERNAME=$1
-AGE=$2
+readonly USERNAME="$1"
+readonly AGE="$2"
 
-if [ "$AGE" -le 0 ] 2>/dev/null; then
-	echo "Le nombre doit être un entier positif"
+if [[ ! "$AGE" =~ ^[1-9][0-9]*$ ]]; then
+	echo "Le nombre doit être un entier positif" >&2
 	exit 1
 fi
 
