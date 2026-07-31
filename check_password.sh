@@ -1,12 +1,17 @@
 #!/bin/bash
 set -euo pipefail
+readonly MDP_CORRECT="1234"
 
-read -sp "Entrez le mot de passe : " secret
-	echo ""
+if ! read -rsp "Entrez le mot de passe : " secret; then
+	echo -e "\n Saisie annulée" >&2
+	exit 1
+fi
 
-if [ "$secret" = "1234" ]; then
-	echo "Accès autoisé"
+echo ""
+
+if [[ "$secret" == "$MDP_CORRECT" ]]; then
+	echo "Accès autorisé"
 else
-	echo "Accès refusé"
+	echo "Accès refusé" >&2
 	exit 1
 fi
