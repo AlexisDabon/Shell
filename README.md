@@ -8,7 +8,6 @@
 ### CONCEPT
 
 - **Progressive:** Organized step-by-step by difficulty/topic.
-- **Local Docs:** Each subfolder inside `bin/` contains its own dedicated `README.md`.
 
 ---
 
