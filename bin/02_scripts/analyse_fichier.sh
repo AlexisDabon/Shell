@@ -13,3 +13,8 @@ if [[ ! "$LIGNES_MAX" =~ ^[1-9][0-9]*$ ]]; then
 	echo "Erreur: Le nombre maximum de lignes doit être un entier positif." >&2
 	exit 1 
 fi
+
+if [[ ! -f "$CHEMIN_FICHIER" ]]; then
+	echo "Erreur: Le chemin '$CHEMIN_FICHIER' n'existe pas." >&2
+	exit 2
+fi
