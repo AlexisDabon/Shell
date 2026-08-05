@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -euo pipefail
+set -euo pipefail
 
 if (( $# != 2 )); then
 	echo "Usage $0 <chemin_fichier> <lignes_max>" >&2
