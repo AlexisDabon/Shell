@@ -15,3 +15,8 @@ if [[ ! "$LIGNES_MAX" =~ ^[1-9][0-9]*$ ]]; then
 	echo "Erreur le nombre de lignes max. doit être un entier positif" >&2
 	exit 1
 fi
+
+if [[ ! -d "$CHEMIN_DOSSIER" ]]; then	
+	echo "Erreur "$CHEMIN_DOSSIER" n'existe pas." >&2
+	exit 2
+fi	
