@@ -34,6 +34,20 @@ fichier_non_conforme=0
 			(( ++fichier_non_conforme ))
 		else
 			echo "[OK] $fichier ($nb_lignes / $LIGNES_MAX lignes)"
-		fi	
+			fi	
+		fi
+	done
+
+	echo "--- Analyse ---"
+
+	if (( total_fichiers == 0 )); then
+		echo "Aucun fichiers trouvés dans '$CHEMIN_DOSSIER'"
+	else
+		echo "Fichiers analysés: $total_fichiers"
+		echo "Fichiers hors limite: $fichier_non_conforme"
 	fi
-done
+
+	if (( fichier_non_conforme > 0 )); then
+		exit 3
+	fi
+exit 0
