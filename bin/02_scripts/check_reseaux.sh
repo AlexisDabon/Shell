@@ -28,18 +28,18 @@ while IFS=';' read -r name target port || [[ -n "$name" ]]; do
 	target=$(echo "$target" | xargs)
 	port=$(echo "$port" | xargs)
 
-if [[ -z "$name" || "$name" =~ ^# ]]; then
-	continue
-fi
+	if [[ -z "$name" || "$name" =~ ^# ]]; then
+		continue
+	fi
 
 	(( total_services++ ))
 
-if [[ "$port" == "PING" ]]; then
-	if ping -c 2 -W 2 "$target" &>/dev/null; then
-	(( services_online++ ))
+	if [[ "$port" == "PING" ]]; then
+		if ping -c 2 -W 2 "$target" &>/dev/null; then
+			(( services_online++ ))
 		echo -e "$name ($target:$port) -> ${COLOR_GREEN}[ONLINE]${COLOR_RESET}"
-else
-	(( services_offline++ ))
+	else
+			(( services_offline++ ))
 		echo -e "$name ($target:$port) -> ${COLOR_RED}[OFFLINE]${COLOR_RESET}"
 	fi
 fi
